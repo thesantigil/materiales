@@ -346,14 +346,14 @@ function renderCart(){
 function updateWhatsappLink(ids, total){
   const link = document.getElementById('cartWhatsapp');
   if(ids.length === 0){
-    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola PAMPA, quiero consultar por materiales.')}`;
+    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola LEAL, quiero consultar por materiales.')}`;
     return;
   }
   const lines = ids.map(id=>{
     const p = products.find(x=>x.id===id);
     return `• ${cart[id]} x ${p.name} (${p.unit})`;
   });
-  const msg = `Hola PAMPA, quiero hacer este pedido:\n\n${lines.join('\n')}\n\nTotal estimado: ${money(total)}\n\n¿Me confirman disponibilidad y coordinamos el retiro/envío?`;
+  const msg = `Hola LEAL, quiero hacer este pedido:\n\n${lines.join('\n')}\n\nTotal estimado: ${money(total)}\n\n¿Me confirman disponibilidad y coordinamos el retiro/envío?`;
   link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
