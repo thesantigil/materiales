@@ -101,10 +101,6 @@ input{ font-family:inherit; }
   max-width:1180px; margin:0 auto; padding:.9rem 1.5rem;
   display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
 }
-.logo-img {
-  height: 38px;
-  width: auto;
-}
 
 .logo{ display:flex; align-items:center; gap:.6rem; }
 .logo-text{
