@@ -1,5 +1,5 @@
 /* ============================================
-   PAMPA · Materiales de Construcción
+   + · Materiales de Construcción
    Datos, filtros, carrito
 ============================================ */
 
@@ -20,9 +20,9 @@ const categories = [
 
 const products = [
   // Maderas
-  { id:'p01', name:'Tirante de pino 2x3 x 3m', cat:'maderas', unit:'unidad', price:5400, color:'#8A4A2B' },
-  { id:'p02', name:'Tabla machimbrada pino 1x6', cat:'maderas', unit:'metro', price:3200, color:'#9A5A34' },
-  { id:'p03', name:'Listón de eucalipto 2x2 x 2,5m', cat:'maderas', unit:'unidad', price:2800, color:'#7A4127' },
+  { id:'p01', name:'Tirante de pino 2x3 x 3m', cat:'maderas', unit:'unidad', price:5400, color:'#070606' },
+  { id:'p02', name:'Tabla machimbrada pino 1x6', cat:'maderas', unit:'metro', price:3200, color:'#3f0303' },
+  { id:'p03', name:'Listón de eucalipto 2x2 x 2,5m', cat:'maderas', unit:'unidad', price:2800, color:'#000000' },
   // Tableros
   { id:'p04', name:'Fenólico 18mm 1,22x2,44m', cat:'tableros', unit:'placa', price:38500, color:'#B98850' },
   { id:'p05', name:'MDF crudo 15mm 1,83x2,60m', cat:'tableros', unit:'placa', price:29900, color:'#C79A5F' },
@@ -306,12 +306,13 @@ function renderCart(){
   if(ids.length === 0){
     wrap.innerHTML = `<p class="cart-empty">Todavía no agregaste productos.<br>Explorá el catálogo y sumá lo que necesitás para tu obra.</p>`;
   } else {
-    wrap.innerHTML = ids.map(id=>{
+        wrap.innerHTML = ids.map(id=>{
       const p = products.find(x=>x.id===id);
       const qty = cart[id];
+      const imgPath = CATEGORY_IMAGES[p.cat];
       return `
         <div class="cart-item">
-          <span class="cart-item-swatch" style="background:${p.color}"></span>
+          <img class="cart-item-swatch" src="${imgPath}" alt="${p.name}" onerror="this.style.background='${p.color}'; this.src=''">
           <div class="cart-item-info">
           <h4>${p.name}</h4>
           <span>${money(p.price)} / ${p.unit}</span>
