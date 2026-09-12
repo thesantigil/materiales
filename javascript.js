@@ -309,7 +309,7 @@ function renderCart(){
         wrap.innerHTML = ids.map(id=>{
       const p = products.find(x=>x.id===id);
       const qty = cart[id];
-      const imgPath = CATEGORY_IMAGES[p.cat];
+      const imgPath = PRODUCT_IMAGES[p.id] || CATEGORY_IMAGES[p.cat];
       return `
         <div class="cart-item">
           <img class="cart-item-swatch" src="${imgPath}" alt="${p.name}" onerror="this.style.background='${p.color}'; this.src=''">
